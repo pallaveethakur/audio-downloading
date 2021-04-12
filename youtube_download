@@ -1,0 +1,15 @@
+links='https://www.youtube.com/watch?v=M-55BmjOuXY'
+#for link in urlList:
+ydl_opts = {
+        'format': 'bestaudio/best',
+        'noplaylist': True, 
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'wav',
+       
+            'preferredquality': '192',
+        }],
+    }
+os.chdir(r'./')
+with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+    ydl.download([links])   
